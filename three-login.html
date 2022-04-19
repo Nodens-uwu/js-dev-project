@@ -39,13 +39,11 @@
             espacio que sobre. Mientras que el formulario ocupe una fracción. Así no se dañará el
             formulario cuando salgan las advertencias*/
             width: 300px;
-            justify-items: center; /*Así se alinea la imágen y el texto inferior de reenviar*/
         }
         .logo {
             width: 150px;
             margin-bottom: 48px; /*Permite poner una margen inferior*/
             justify-self: center; /*Se centra horizontalmente, fácil*/
-            margin-left: 74.5px;
             display: none; /*En desktop no va en el grid, va arriba*/
         }
         @media (max-width:640px){
@@ -54,31 +52,24 @@
             
             }
         }
-        .title {
-            font-size: var(--lg); /*Así se usan las variables :D*/
-            margin-bottom: 12px;
-            text-align: center;
+        .form {
+            display: flex; /*Esto hace que todo se acomode hacia abajo, sin necesidad de  <br> y eso*/
+            flex-direction: column;
         }
-        .subtitle {
-            color: var(--very-light-pink);
-            font-size: var(--md);
-            font-weight: 300; /*Esto es lo del ancho de las letras*/
-            margin-top: 0px;
-            margin-bottom: 32px;
-            text-align: center;
+        .label {
+            font-size: var(--sm);
+            font-weight: bold;
+            margin-bottom: 8px;
         }
-        .email-image {
+        .input {
             background-color: var(--text-input-field);
-            width: 132px;
-            height: 132px;
-            border-radius: 50%;
-            display: flex; /*Lo alinea verticalmente, así el circulo y la imágen quedan alineados en eje y*/
-            justify-content: center; /*Lo alinea horizontalmente, así el circulo y la imágen quedan alineados en eje x*/
-            align-items: center;
-            margin-bottom: 16px;
-        }
-        .email-image img {
-            width: 80px;
+            border:none;
+            border-radius: 8px;
+            height:32px;
+            width: 100%;
+            font-size: var(--md);
+            padding: 4px;
+            margin-bottom: 20px;
         }
         .primary-button {
             background-color: var(--hospital-green);
@@ -93,16 +84,6 @@
             margin-top: 20px;
             margin-bottom: 30px;
         }
-        .resend {
-            font-size: var(--sm);
-        }
-        .resend span {
-            color: var(--very-light-pink);
-        }
-        .resend a {
-            color: var(--hospital-green);
-            text-decoration: none; /*Así se le quita el subrayado inferior*/
-        }
     </style>
 </head>
 <body>
@@ -110,18 +91,29 @@
         <div class="form-container"> <!--Contiene logos, labels y demás-->
             <img src="./logos/logo_yard_sale.svg" alt="logo" 
             class="logo"> <!--en el enrutamiento, el "." dice, ruta actual.-->
-            <h1  class="title">Email has been sent!</h1>
-            <p class="subtitle">Please check your inbox for instructions on how 
-                to reset the password
-            </p>
-            <section class="email-image">
-                <img src="./icons/email.svg" alt="email">
-            </section>
-            <button class="primary-button login-button">login</button>
-            <p class="resend">
-                <span>Didn't receive the email? </span>
-                <a href="/">Resend</a>
-            </p>
+            <form action="/" class="form">
+                <label for="email" class="label"> 
+                    Email address
+                </label>
+                <input type="text" 
+                id="email" placeholder="camilayokoo@gmail.com"
+                class="input input-email">
+
+                <label for="password" class="label"> 
+                    Password
+                </label>
+                <input type="password" 
+                id="password" placeholder="*********"
+                class="input input-password">
+
+                <input type="submit" 
+                value="Log in" class="primary-button login-button"> <!--la primera clase, es la general. La segunda, es la clase para agregarle cosas al botón-->
+
+                <a href="/" class="forgotten">Forgot my password</a>
+            </form>
+
+            <button class="sign-up">Sign up</button>
+            
         </div>
     </div>
 </body>
