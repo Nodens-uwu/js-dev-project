@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,8 +58,8 @@
             }
         }
         .form {
-            display: flex; /*Esto hace que todo se acomode hacia abajo, sin necesidad de  <br> y eso*/
-            flex-direction: column;
+            display: flex; /*Esto hace que todo se acomode en filas/
+            flex-direction: column; /*Esto hace que todo se acomode hacia abajo, sin necesidad de  <br> y eso*/
         }
         .label {
             font-size: var(--sm);
@@ -112,8 +112,8 @@
     </style>
 </head>
 <body>
-    <div class="login"> <!--Contiene el view-->
-        <div class="form-container"> <!--Contiene logos, labels y demás-->
+    <div class="login">
+        <div class="form-container">
             <img src="./logos/logo_yard_sale.svg" alt="logo" 
             class="logo"> <!--en el enrutamiento, el "." dice, ruta actual.-->
             <form action="/" class="form">
@@ -132,14 +132,11 @@
                     id="password" placeholder="*********"
                     class="input input-password">
                 <input type="submit" 
-                value="Log in" class="primary-button login-button"> <!--la primera clase, es la general. La segunda, es la clase para agregarle cosas al botón-->
-
+                value="Log in" class="primary-button login-button">
                 <a href="/" class="forgotten">Forgot my password</a>
             </div>
             </form>
-
             <button class="secondary-button sign-up">Sign up</button>
-            
         </div>
     </div>
 </body>
